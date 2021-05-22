@@ -8,6 +8,12 @@
 
 'use strict';
 
+    let ps0 = document.getElementById("process-step0");
+	let ps1 = document.getElementById("process-step1");
+	let ps2 = document.getElementById("process-step2");
+	let pss = [ps0, ps1, ps2];
+	let maxval = 0;
+adjustSections();
 
 $(window).on('load', function() {
 	/*------------------
@@ -90,3 +96,22 @@ $(window).on('load', function() {
 
 })(jQuery);
 
+window.onresize = function(event) {
+	adjustSections();
+}
+
+function adjustSections(){
+    ps0 = document.getElementById("process-step0");
+ 	ps1 = document.getElementById("process-step1");
+ 	ps2 = document.getElementById("process-step2");
+ 	pss = [ps0, ps1, ps2];
+ 	maxval = 0;
+	for (var i in pss){
+		if (pss[i].scrollHeight > maxval){
+			maxval = pss[i].scrollHeight;
+		}
+	}
+	ps0.style.height = maxval+'px';
+	ps1.style.height = maxval+'px';
+	ps2.style.height = maxval+'px';	
+}

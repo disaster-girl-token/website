@@ -29,7 +29,7 @@
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
+	<script type="text/javascript" src="js/metamask.js"></script>
 
 </head>
 <body>
@@ -46,7 +46,7 @@
 			</a>
 			<div class="responsive-bar"><i class="fa fa-bars"></i></div>
 			<a href="" class="user"><i class="fa fa-user"></i></a>
-			<!--<a href="" class="site-btn">Sign Up Free</a>-->
+			<span  class="site-btn" onclick="connectWallet()" id="connect-btn">Connect wallet</span>
 			<nav class="main-menu">
 				<ul class="menu-list">
 					<li><a href="#summary">Summary</a></li>
@@ -177,36 +177,36 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4 process">
-					<div class="process-step">
+					<div class="process-step" id="process-step0">
 						<figure class="process-icon">
 							<img src="img/process-icons/1.png" alt="#" class="img-thm">
 						</figure>
 						<h4>Download Metamask</h4>
 						<p>Metamask is a browser extension that communicates the browser with the blockchain making it possible to link one or more wallets to your browser.<br>
-							<a href="https://metamask.io/">Download here</a></p>
+							<a class="site-btn btn-section" href="https://metamask.io/download.html">download here</a>
+						</p>
 					</div>
 				</div>
 				<div class="col-md-4 process">
-					<div class="process-step">
+					<div class="process-step" id="process-step1">
 						<figure class="process-icon">
 							<img src="img/process-icons/2.png" alt="#"  class="img-thm">
 						</figure>
 						<h4>Connect to BSC</h4>
 						<p>
 							In order to get the token you need to be connected to the Binance Smart Chain as the token is deployed there.
-							<br><a href="https://coinguides.org/binance-smart-chain-metamask/">Tutorial here</a></p>
+							<br><a href="https://coinguides.org/binance-smart-chain-metamask/" class="site-btn btn-section" >Tutorial here</a></p>
 					</div>
 				</div>
 				<div class="col-md-4 process">
-					<div class="process-step">
-						<figure class="process-icon">
+					<div class="process-step" id="process-step2">
+						<figure class="process-icon" >
 							<img src="img/process-icons/3.png" alt="#"  class="img-thm">
 						</figure>
 						<h4>Add DISG contract address</h4>
 						<p>
 							Finally, in order to make transfers and other operations with the token you must link the contract address with Metamask.
-							<br><span style="font-size: 10px">Address: 0x46445d5de905b6abfb6f0e3a06b68ed445d1ab10</p>
-							<br><a href="https://coinguides.org/custom-tokens-metamask/">Tutorial here</a>
+							<span class="site-btn btn-section" onclick="addDISGToken()">add token</span>
 							</span>
 						</p>
 					</div>
@@ -313,9 +313,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 				<div class="col-md-6 col-lg-3 footer-widget pl-lg-5 pl-3">
 					<h5 class="widget-title">Social Networks</h5>
 					<div class="social">
-						<a href="" class="telegram"><i class="fa fa-telegram"></i></a>
-						<a href="" class="github"><i class="fa fa-github"></i></a>
-						<a href="" class="twitter"><i class="fa fa-twitter"></i></a>
+						<a href="https://twitter.com/DisasterGirlBSC" class="telegram"><i class="fa fa-telegram"></i></a>
+						<a href="https://github.com/disaster-girl-token/disaster-girl-main" class="github"><i class="fa fa-github"></i></a>
+						<a href="https://t.me/DisasterGirlToken" class="twitter"><i class="fa fa-twitter"></i></a>
 					</div>
 				</div>
 			</div>
