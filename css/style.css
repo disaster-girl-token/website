@@ -83,6 +83,10 @@ textarea:focus {
 	outline: none;
 }
 
+.logo200 {
+  float:right;
+}
+
 a:hover,
 a:focus {
 	text-decoration: none;
@@ -219,6 +223,11 @@ ol {
 
  .btn-section {
 	vertical-align: bottom;
+ }
+
+ .wp-btn:hover{
+	 color: #ffffff;
+	 text-decoration: underline;
  }
 
 /* Image Popup */
@@ -1717,6 +1726,16 @@ ol {
 	.page-info-section h2 {
 		font-size: 40px;
 	}
+
+		}
+	.whitepaper-section {
+		background-position: right 56% top;
+		margin-top: 97px;
+	}
+	.whitepaper-section h2 {
+		font-size: 40px;
+	}
+
 	.about-img {
 		position: relative;
 		display: block;
@@ -1793,7 +1812,7 @@ ol {
 		text-align: left;
 		margin-top: 20px;
 	}
-}
+
 
 /* small Mobile :320px. */
 
