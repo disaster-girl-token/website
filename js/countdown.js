@@ -1,6 +1,6 @@
 // Set the date we're counting down to
-var t1 = new Date("May 26, 2021 00:00:00").getTime();
-var t2 = new Date("Jun 06, 2021 00:00:00").getTime();
+var t1 = new Date("May 26, 2021 00:00:00 GMT").getTime();
+var t2 = new Date("Jun 06, 2021 00:00:00 GMT").getTime();
 var days, hours, minutes, seconds;
 
 function timeTo(countDownDate) {
@@ -32,7 +32,9 @@ function presaleCountdown(start, stop) {
         minutes = timeST[3];
         seconds = timeST[4];
         if (timeST[0] < 0) {
-            var btn = document.getElementById("buy-btn")
+            var btn = document.getElementById("buy-btn");
+            var input = document.getElementById("buy-input");
+            var info = document.getElementById("buy-info");
             var y = setInterval(function () {
                 timeSP = timeTo(stop);
                 days = timeSP[1];
@@ -43,11 +45,15 @@ function presaleCountdown(start, stop) {
                     btn.innerHTML = "Presale ended!";
                     //console.log("Ended");
                     btn.disabled = true;
+                    input.disabled = true;
+                    info.innerHTML="";
                     document.getElementById("countdown").innerHTML = "Presale ends in 0d 0h 0m 0s";
                 } else {
                     btn.innerHTML = "Buy now!"
                     //console.log("Running");
                     btn.disabled = false;
+                    input.disabled = false;
+                    info.innerHTML=	"<ul><li>Presale tokens: 10,000,000,000 DISG</li><li>Purchase currency: BNB</li><li>Rates: 0.000000005 BNB/DISG - 200,000,000 DISG/BNB</li><li>Soft Cap: 5 BNB</li><li>Hard Cap: 50 BNB</li></ul>";
                     document.getElementById("countdown").innerHTML = "Presale ends in " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
                 }
             }, 1000);
