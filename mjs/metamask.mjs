@@ -3,25 +3,25 @@ var vars = {
     token: null,
     MaxBuyAmount: null,
     presale: null,
-    Token : null,
-    Presale : null
+    Token: null,
+    Presale: null
 };
-async function loadAbis(){
-vars.Token = await fetch("../abis/Disastergirltoken.json")
-    .then(response => {
-        return response.json();
-    })
-    .then(data => {
-        return data
-    });
+async function loadAbis() {
+    vars.Token = await fetch("../abis/Disastergirltoken.json")
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            return data
+        });
 
-vars.Presale = await fetch("../abis/Presale.json")
-    .then(response => {
-        return response.json();
-    })
-    .then(data => {
-        return data
-    });
+    vars.Presale = await fetch("../abis/Presale.json")
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            return data
+        });
 }
 
 function handleAccountsChanged(accounts) {
@@ -41,26 +41,63 @@ function handleEthereum() {
         ethereum
     } = window;
     if (ethereum && ethereum.isMetaMask) {
-        document.getElementById('connect-btn').innerHTML = ethereum.selectedAddress;
         if (web3.eth === undefined) {
             window.alert("Please download MetaMask Legacy Web3")
+            // Opera 8.0+
+            var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+            // Firefox 1.0+
+            var isFirefox = typeof InstallTrigger !== 'undefined';
+
+            // Internet Explorer 6-11
+            var isIE = /*@cc_on!@*/ false || !!document.documentMode;
+
+            // Edge 20+
+            var isEdge = !isIE && !!window.StyleMedia;
+
+            // Chrome 1 - 79
+            var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+
+            var isChromium = !!window.chrome;
+
+            var isBrave = !!navigator.brave;
+
+            // Edge (based on chromium) detection
+            var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
+
+            if (isFirefox){ 
+                window.location = "https://addons.mozilla.org/en-US/firefox/addon/metamask-legacy-web3/"
+            }
+            else if (isChrome || isChromium || isBrave){
+                window.location = "https://chrome.google.com/webstore/detail/metamask-legacy-web3/dgoegggfhkapjphahmgihfgemkgecdgl"
+            }
+            else if (isEdge || isEdgeChromium){
+                window.location = "https://microsoftedge.microsoft.com/addons/detail/metamask-legacy-web3/obkfjbjkiofoponpkmphnpaaadebfloh"
+            }
+            else{
+                window.alert("Your browser is not compatible with Metamask")
+            }
+
+        } else {
+            document.getElementById('connect-btn').innerHTML = ethereum.selectedAddress;
+            currentAccount = web3.eth.accounts[0];
+            console.log('Wallet successfully detected!');
+
+            // Access the decentralized web!
+            ethereum
+                .request({
+                    method: 'eth_requestAccounts'
+                })
+                .then(handleAccountsChanged)
+                .catch((error) => {
+                    if (error.code === 4001) {
+                        // EIP-1193 userRejectedRequest error
+                        console.log('Please connect to MetaMask.');
+                    } else {
+                        console.error(error);
+                    }
+                });
         }
-        currentAccount = web3.eth.accounts[0];
-        console.log('Wallet successfully detected!');
-        // Access the decentralized web!
-        ethereum
-            .request({
-                method: 'eth_requestAccounts'
-            })
-            .then(handleAccountsChanged)
-            .catch((error) => {
-                if (error.code === 4001) {
-                    // EIP-1193 userRejectedRequest error
-                    console.log('Please connect to MetaMask.');
-                } else {
-                    console.error(error);
-                }
-            });
 
     } else {
         window.location = "https://metamask.io/download.html";
