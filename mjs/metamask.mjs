@@ -67,13 +67,14 @@ function handleEthereum() {
 
             if (isFirefox){ 
                 window.location = "https://addons.mozilla.org/en-US/firefox/addon/metamask-legacy-web3/"
+            }            
+            else if (isEdge || isEdgeChromium){
+                window.location = "https://microsoftedge.microsoft.com/addons/detail/metamask-legacy-web3/obkfjbjkiofoponpkmphnpaaadebfloh"
             }
             else if (isChrome || isChromium || isBrave){
                 window.location = "https://chrome.google.com/webstore/detail/metamask-legacy-web3/dgoegggfhkapjphahmgihfgemkgecdgl"
             }
-            else if (isEdge || isEdgeChromium){
-                window.location = "https://microsoftedge.microsoft.com/addons/detail/metamask-legacy-web3/obkfjbjkiofoponpkmphnpaaadebfloh"
-            }
+
             else{
                 window.alert("Your browser is not compatible with Metamask")
             }
