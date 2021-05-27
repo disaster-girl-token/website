@@ -53,7 +53,7 @@ function presaleCountdown(start, stop) {
                     //console.log("Running");
                     btn.disabled = false;
                     input.disabled = false;
-                    info.innerHTML=	"<ul><li>Presale tokens: 10,000,000,000 DISG</li><li>Purchase currency: BNB</li><li>Rates: 0.000000005 BNB/DISG - 200,000,000 DISG/BNB</li><li>Soft Cap: 5 BNB</li><li>Hard Cap: 50 BNB</li><li>Presale contract address: <a href='https://bscscan.com/address/0xb79bfdf69e19fc7ed195fd44e32e905270260594#code'>0xb79bfdf69e19fc7ed195fd44e32e905270260594</a></li></ul>";
+                    info.innerHTML=	"<ul><li>Presale tokens: 10,000,000,000 DISG</li><li>Purchase currency: BNB</li><li>Rates: 0.000000005 BNB/DISG - 200,000,000 DISG/BNB</li><li>Hard Cap: 50 BNB</li><li>Presale contract address: <a href='https://bscscan.com/address/0xb79bfdf69e19fc7ed195fd44e32e905270260594#code'>0xb79bfdf69e19fc7ed195fd44e32e905270260594</a></li></ul>";
                     document.getElementById("countdown").innerHTML = "Presale ends in " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
                 }
             }, 1000);
