@@ -63,7 +63,7 @@ function handleEthereum() {
             var isBrave = !!navigator.brave;
 
             // Edge (based on chromium) detection
-            var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
+            var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edge") != -1);
 
             if (isFirefox){ 
                 window.location = "https://addons.mozilla.org/en-US/firefox/addon/metamask-legacy-web3/"
