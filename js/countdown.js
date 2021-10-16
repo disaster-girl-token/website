@@ -1,6 +1,6 @@
 // Set the date we're counting down to
 var t1 = new Date("May 26, 2021 00:00:00 GMT").getTime();
-var t2 = new Date("Jun 26, 2021 00:00:00 GMT").getTime();
+var t2 = new Date("Nov 17, 2021 00:00:00 GMT").getTime();
 var days, hours, minutes, seconds;
 
 function timeTo(countDownDate) {
